@@ -35,7 +35,7 @@ function(add_tinyusb TARGET)
     # typec
     ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/typec/usbc.c
     )
-  target_include_directories(${TARGET} PUBLIC
+  target_include_directories(${TARGET} SYSTEM PUBLIC
     ${CMAKE_CURRENT_FUNCTION_LIST_DIR}
     # TODO for net driver, should be removed/changed
     ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/../lib/networking
@@ -68,6 +68,7 @@ function(add_tinyusb TARGET)
       -Wreturn-type
       -Wredundant-decls
       -Wmissing-prototypes
+      -Wno-pedantic
       )
   elseif (CMAKE_C_COMPILER_ID STREQUAL "IAR")
 
